@@ -6,6 +6,7 @@ import matplotlib
 from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Rectangle
 from IPython.display import HTML
+from constants import  mass_of_the_load , mass_of_the_cart , length, gravity, force, kp, ki, kd, a,b,c,d
 
 def x(t):
     return t
@@ -29,7 +30,7 @@ def run(l=5,x=x, theta=theta, frames=100, interval=20):
     
 
     def init():
-        return ln,
+        return ln, title
 
     def update(i):
         
@@ -48,7 +49,11 @@ def run(l=5,x=x, theta=theta, frames=100, interval=20):
         
         p2 = (p1[0]-opp,p1[1]-adj)
         ln.set_data([p1[0],p2[0]],[p1[1],p2[1]])
-        return ln, cart
+        return ln, cart, title
 
     anim = FuncAnimation(fig, update, init_func=init, frames=frames, interval=interval, blit=True)
     return show(anim)
+
+if __name__ == "__main__":
+    run()
+    plt.show()
