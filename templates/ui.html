@@ -1,0 +1,30 @@
+{% block content %}
+    <h1>PD Controller</h1>
+    <form action="" method="post" novalidate style="width: 50%; float: left;">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.kp.label }}<br>
+            {{ form.kp(size=32) }}
+        </p>
+        <p>
+            {{ form.kd.label }}<br>
+            {{ form.kd(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <table>
+        <tr><td width="300">kp</td><td>{{ kp }}</td></tr>
+        <tr><td width="300">kd</td><td>{{ kd }}</td></tr>
+        <tr><td width="300">System Stability</td><td>{{ sys_stability }} </td></tr>
+        <tr><td width="300">poles</td><td>{{ poles }} </td></tr>
+        <tr><td width="300">Rise Time</td><td>{{ sys_step_info['RiseTime'] }} </td></tr>
+        <tr><td width="300">Settling Time</td><td>{{ sys_step_info['SettlingTime'] }} </td></tr>
+        <tr><td width="300">Overshoot</td><td>{{ sys_step_info['Overshoot'] }} </td></tr>
+        <tr><td width="300">Steady State Value</td><td>{{ sys_step_info['SteadyStateValue'] }} </td></tr>
+        <tr><td width="300">Transfer Function</td><td><pre><code>{{ G }}</code></pre></td></tr>
+        <tr><td width="300">Controller Function</td><td><pre><code>{{ C }}</code></pre></td></tr>
+        <tr><td width="300">Closed Loop</td><td><pre><code>{{ closed_loop }}</code></pre></td></tr>
+    </table>
+<img  style="width: 50%; float: left;" src='data:image/png;base64,{{img}}' alt="my plot">
+
+{% endblock %}

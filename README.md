@@ -22,6 +22,10 @@ jupyter notebook '.\Control System GUI.ipynb'
 python ./transfer_function.py
 ```
 
+```bash
+python ./animate.py
+```
+
 ## Project Overview
 - constants.py => where you can find the inputs for the project
 - transfer_function.py => where you can find the information for controls
