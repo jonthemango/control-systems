@@ -57,8 +57,6 @@ def main():
     data = base64.b64encode(buf.getbuffer()).decode("ascii")
     buf.close()
 
-    
-
     return render_template('ui.html', title='Sign In', kd=kd, kp=kp, form=form, G=G, C=C, sys_stability=sys_stability, poles=poles, sys_step_info=sys_step_info, closed_loop=closed_loop, img=data)
 
 if __name__ == '__main__':
